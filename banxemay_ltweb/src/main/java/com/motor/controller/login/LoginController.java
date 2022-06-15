@@ -59,12 +59,7 @@ public class LoginController extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
-        if(redirectId==0)
-        {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            return;
 
-        }
         String requestUri = AppUtils.getRedirectAfterLoginUrl(request.getSession(), redirectId);
         if (requestUri != null) {
             response.sendRedirect(requestUri);
