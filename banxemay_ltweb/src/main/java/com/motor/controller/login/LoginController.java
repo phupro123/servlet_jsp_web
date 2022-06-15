@@ -56,9 +56,14 @@ public class LoginController extends HttpServlet {
         try {
             redirectId = Integer.parseInt(request.getParameter("redirectId"));
         } catch (Exception e) {
+            System.out.println();
+        }
+        if(redirectId==0)
+        {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
+
 
         String requestUri = AppUtils.getRedirectAfterLoginUrl(request.getSession(), redirectId);
         if (requestUri != null) {
