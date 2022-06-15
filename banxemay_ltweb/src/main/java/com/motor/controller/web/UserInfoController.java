@@ -32,8 +32,12 @@ public class UserInfoController extends HttpServlet {
         User user = (User) session.getAttribute("loginedUser");
 
         String req_id = req.getParameter("id");
-        if(req_id.length() > 4)
+        if(req_id.length() > 5)
+        {
             req_id = "0";
+            resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+
+        }
         int id = Integer.parseInt(req_id);
         if (user.getId() == id) {
             User userInfo = userService.findOne(id);
