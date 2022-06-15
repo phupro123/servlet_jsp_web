@@ -59,6 +59,7 @@ public class UserInfoController extends HttpServlet {
         catch (Exception e)
         {
             resp.sendRedirect("/decorators/error.jsp");
+
         }
 
         String action = req.getParameter("action");
