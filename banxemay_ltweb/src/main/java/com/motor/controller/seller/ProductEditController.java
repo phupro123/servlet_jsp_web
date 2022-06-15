@@ -20,6 +20,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
+import static org.apache.commons.text.StringEscapeUtils.escapeHtml4;
+
 @WebServlet(urlPatterns = {"/seller/productedit"})
 public class ProductEditController extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -75,8 +77,8 @@ public class ProductEditController extends HttpServlet {
         User user = (User) session.getAttribute("loginedUser");
 
         String action = req.getParameter("action");
-        String name = req.getParameter("name");
-        String description = req.getParameter("description");
+        String name = escapeHtml4(req.getParameter("name"));
+        String description = escapeHtml4(req.getParameter("description"));
         int price = Integer.parseInt(req.getParameter("price"));
         int amount = Integer.parseInt(req.getParameter("amount"));
         int categories = Integer.parseInt(req.getParameter("categories"));
@@ -84,7 +86,8 @@ public class ProductEditController extends HttpServlet {
         int status = Integer.parseInt(req.getParameter("status"));
         int id = Integer.parseInt(req.getParameter("id"));
         int seller_id = user.getId();
-        String image = req.getParameter("image");
+        String image = escapeHtml4(req.getParameter("image"));
+
         Product product = new Product(id, name, price, description,
                 image, categories, seller_id, amount, status, brand);
 

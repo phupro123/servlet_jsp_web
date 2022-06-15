@@ -16,6 +16,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
+import static org.apache.commons.text.StringEscapeUtils.escapeHtml4;
+
 @WebServlet("/home/userinfo")
 public class UserInfoController extends HttpServlet {
     IUserService userService = new UserServiceImpl();
@@ -55,9 +57,9 @@ public class UserInfoController extends HttpServlet {
         String action = req.getParameter("action");
         switch (action) {
             case "info": {
-                String phone = req.getParameter("phone");
-                String email = req.getParameter("email");
-                String fullname = req.getParameter("fullname");
+                String phone = escapeHtml4(req.getParameter("phone"));
+                String email = escapeHtml4(req.getParameter("email"));
+                String fullname = escapeHtml4(req.getParameter("fullname"));
                 User newUser = new User();
                 newUser.setId(id);
                 newUser.setPhone(phone);

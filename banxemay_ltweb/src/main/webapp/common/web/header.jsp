@@ -1,3 +1,4 @@
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 
@@ -98,7 +99,7 @@
                     <div class="search-box">
                         <form action="/home/search">
                             <div class="input-group">
-                                <input type="text" name="txt" value="${txtS}" placeholder="Search" class="form-control">
+                                <input type="text" name="txt" value="${fn:escapeXml(txtS)}" placeholder="Search" class="form-control">
                                 <span class="input-group-btn">
                                      <button class="btn btn-primary" type="submit">Search</button>
                                 </span>

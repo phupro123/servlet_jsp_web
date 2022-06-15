@@ -1,3 +1,4 @@
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@include file="/common/taglib.jsp" %>
@@ -75,6 +76,7 @@ License: You must have a valid license purchased only from themeforest (the abov
 <div class="title-wrapper">
   <div class="container"><div class="container-inner">
     <h1>${fn:escapeXml(txtS)}</h1>
+<%--    <h1>${txtS}</h1>--%>
 
   </div></div>
 </div>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static org.apache.commons.text.StringEscapeUtils.escapeHtml4;
 
 
 @WebServlet("/register")
@@ -31,12 +32,13 @@ public class RegisterController extends HttpServlet {
 
         int role = Integer.parseInt(req.getParameter("role_id"));
 
-        String fullname = req.getParameter("fullname");
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        String mail = req.getParameter("email");
-        String phone = req.getParameter("phone");
-        String image = req.getParameter("image");
+        String fullname = escapeHtml4(req.getParameter("fullname"));
+        String username = escapeHtml4(req.getParameter("username"));
+        String password = escapeHtml4(req.getParameter("password"));
+        String mail = escapeHtml4(req.getParameter("email"));
+        String phone = escapeHtml4(req.getParameter("phone"));
+        String image = escapeHtml4(req.getParameter("image"));
+
 
         User user1 = new User(-1, username, password, fullname, mail, phone, role, image);
 
