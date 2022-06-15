@@ -33,6 +33,8 @@ public class CategoryController extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
 
         String cid = req.getParameter("cid");
+        if (cid.length() > 3)
+            cid = "1";
 
         int cId = Integer.parseInt(cid);
 
