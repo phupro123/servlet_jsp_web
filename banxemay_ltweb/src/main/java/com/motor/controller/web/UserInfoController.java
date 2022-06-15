@@ -36,7 +36,7 @@ public class UserInfoController extends HttpServlet {
         {
             req_id = "0";
             resp.sendError(HttpServletResponse.SC_NOT_FOUND);
-
+            return;
         }
         int id = Integer.parseInt(req_id);
         if (user.getId() == id) {

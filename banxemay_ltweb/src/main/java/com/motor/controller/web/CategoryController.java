@@ -34,7 +34,10 @@ public class CategoryController extends HttpServlet {
 
         String cid = req.getParameter("cid");
         if (cid.length() > 3)
-            cid = "1";
+        {
+            resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+            return;
+        }
 
         int cId = 0;
         try{

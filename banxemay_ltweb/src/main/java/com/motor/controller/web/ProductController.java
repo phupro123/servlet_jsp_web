@@ -34,8 +34,11 @@ public class ProductController extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
 
         String pid = req.getParameter("pid");
-        if(pid.length() > 3)
-            pid = "1";
+        if(pid.length() > 4)
+        {
+            resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+            return;
+        }
 
 
         int productId = 0;
