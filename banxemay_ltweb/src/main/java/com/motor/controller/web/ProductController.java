@@ -46,6 +46,7 @@ public class ProductController extends HttpServlet {
         {
             resp.sendError(HttpServletResponse.SC_NOT_FOUND);
             return;
+
         };
 
         HttpSession session = req.getSession();

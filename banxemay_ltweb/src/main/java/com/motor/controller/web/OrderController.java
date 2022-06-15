@@ -36,6 +36,7 @@ public class OrderController extends HttpServlet {
         {
             resp.sendError(HttpServletResponse.SC_NOT_FOUND);
             return;
+
         }
         List<Order> orders = orderService.findAllByUser(user.getId());
         List<Category> listCate= categoryService.findAll();
