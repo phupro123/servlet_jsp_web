@@ -34,5 +34,15 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+<!--    Fix charset Mismath-->
+    <charset-params>
+        <input-charset>
+            <resource-path>/*</resource-path>
+            <java-charset-name>UTF-8</java-charset-name>
+            <resource-path>../decorators/*</resource-path>
+        </input-charset>
+    </charset-params>
+
+
 
 </web-app>
