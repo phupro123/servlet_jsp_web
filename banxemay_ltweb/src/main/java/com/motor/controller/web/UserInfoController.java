@@ -31,7 +31,10 @@ public class UserInfoController extends HttpServlet {
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("loginedUser");
 
-        int id = Integer.parseInt(req.getParameter("id"));
+        String req_id = req.getParameter("id");
+        if(req_id.length() > 4)
+            req_id = "0";
+        int id = Integer.parseInt(req_id);
         if (user.getId() == id) {
             User userInfo = userService.findOne(id);
             req.setAttribute("user", userInfo);
@@ -52,15 +55,7 @@ public class UserInfoController extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("loginedUser");
-        int id = 0;
-        try{
-            id = user.getId();
-        }
-        catch (Exception e)
-        {
-            resp.sendRedirect("/decorators/error.jsp");
-
-        }
+        int id = user.getId();
 
         String action = req.getParameter("action");
         switch (action) {
