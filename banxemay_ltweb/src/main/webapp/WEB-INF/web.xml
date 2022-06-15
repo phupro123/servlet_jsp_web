@@ -23,4 +23,16 @@
         <filter-name>sitemesh</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+<!--    fix	X-content-Type-Options Header Missing-->
+    <filter>
+        <filter-name>HeaderSecurityFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>HeaderSecurityFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
 </web-app>
