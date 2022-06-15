@@ -74,7 +74,7 @@ License: You must have a valid license purchased only from themeforest (the abov
 
 <div class="title-wrapper">
   <div class="container"><div class="container-inner">
-    <h1>${txtS}</h1>
+    <h1>${fn:escapeXml(txtS)}</h1>
 
   </div></div>
 </div>
