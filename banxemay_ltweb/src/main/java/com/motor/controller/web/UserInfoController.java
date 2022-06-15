@@ -52,7 +52,14 @@ public class UserInfoController extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("loginedUser");
-        int id = user.getId();
+        int id = 0;
+        try{
+            id = user.getId();
+        }
+        catch (Exception e)
+        {
+            resp.sendRedirect("/decorators/error.jsp");
+        }
 
         String action = req.getParameter("action");
         switch (action) {
