@@ -36,7 +36,15 @@ public class CategoryController extends HttpServlet {
         if (cid.length() > 3)
             cid = "1";
 
-        int cId = Integer.parseInt(cid);
+        int cId = 0;
+        try{
+            cId = Integer.parseInt(cid);
+        }
+        catch (Exception e)
+        {
+            resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+            return;
+        };
 
 
 

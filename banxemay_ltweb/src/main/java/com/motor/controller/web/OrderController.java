@@ -32,6 +32,11 @@ public class OrderController extends HttpServlet {
 
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("loginedUser");
+        if(user == null)
+        {
+            resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+            return;
+        }
         List<Order> orders = orderService.findAllByUser(user.getId());
         List<Category> listCate= categoryService.findAll();
         req.setAttribute("AllCate",listCate);

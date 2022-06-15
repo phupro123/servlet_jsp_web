@@ -38,7 +38,15 @@ public class ProductController extends HttpServlet {
             pid = "1";
 
 
-        int productId = Integer.parseInt(pid);
+        int productId = 0;
+        try{
+            productId = Integer.parseInt(pid);
+        }
+        catch (Exception e)
+        {
+            resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+            return;
+        };
 
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("loginedUser");
